@@ -1,0 +1,25 @@
+--@E:\Rahul\week2\drop_18417137.txt
+
+/* 
+Rahul, 18417137, DATABASE 1, 
+*/
+ALTER TABLE trainers
+DROP CONSTRAINT pk_trainers;
+
+ALTER TABLE sites
+DROP CONSTRAINT pk_sites;
+
+
+
+ALTER TABLE students
+DROP CONSTRAINT pk_students;
+
+ALTER TABLE trainers
+DROP CONSTRAINT u_car_reg;
+
+DROP TABLE sites;
+DROP TABLE subject_areas;
+DROP TABLE trainers;
+DROP TABLE students;
+
+PURGE RECYCLEBIN;

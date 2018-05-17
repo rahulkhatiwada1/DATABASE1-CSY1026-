@@ -1,0 +1,117 @@
+--	Rahul@student/RAHUL
+-- @E:\Rahul\week4\alters_18417137.txt
+/* 
+Rahul, 18417137, DATABASE 1, 
+*/
+
+--codes
+
+
+--MODIFICATIONS
+ALTER TABLE sites MODIFY (
+location VARCHAR2(40));
+
+ALTER TABLE trainers MODIFY (
+contact_no VARCHAR2(15) NOT NULL);
+
+ALTER TABLE students
+ADD DOB DATE;
+
+ALTER TABLE trainers
+ADD car_reg NUMBER(5);
+
+
+--ADDING PRIMARY KEYS
+
+ALTER TABLE sites 
+ADD CONSTRAINT pk_sites
+PRIMARY KEY (site_id);
+
+ALTER TABLE courses
+ADD CONSTRAINT pk_courses
+PRIMARY KEY (course_id);
+
+ALTER TABLE trainers
+ADD CONSTRAINT pk_trainers
+PRIMARY KEY (trainer_id);
+
+ALTER TABLE subject_areas
+ADD CONSTRAINT pk_subject_areas
+PRIMARY KEY (subject_id);
+
+ALTER TABLE course_runs
+ADD CONSTRAINT pk_course_runs
+PRIMARY KEY (running_id);
+
+ALTER TABLE attendances
+ADD CONSTRAINT pk_attendances
+PRIMARY KEY (running_id,student_id);
+
+ALTER TABLE students
+ADD CONSTRAINT pk_students
+PRIMARY KEY (student_id);
+
+ALTER TABLE students DROP
+(DATE_OF_BIRTH);
+
+ALTER TABLE invoices
+ADD CONSTRAINT pk_invoices
+PRIMARY KEY (invoice_id);
+
+--ADDING FOREIGN KEYS
+
+ALTER TABLE courses
+ADD CONSTRAINT fk_c_subject_areas
+FOREIGN KEY (subject_id)
+REFERENCES subject_areas (subject_id);
+
+ALTER TABLE attendances
+ADD CONSTRAINT fk_a_course_runs
+FOREIGN KEY (running_id)
+REFERENCES course_runs (running_id);
+
+ALTER TABLE attendances
+ADD CONSTRAINT fk_a_students
+FOREIGN KEY (student_id)
+REFERENCES students (student_id);
+
+ALTER TABLE course_runs
+ADD CONSTRAINT fk_c_sites
+FOREIGN KEY (site_id)
+REFERENCES sites (site_id);
+
+ALTER TABLE course_runs
+ADD CONSTRAINT fk_c_courses
+FOREIGN KEY (course_id)
+REFERENCES courses (course_id);
+
+ALTER TABLE course_runs
+ADD CONSTRAINT fk_c_trainers
+FOREIGN KEY (trainer_id)
+REFERENCES trainers (trainer_id);
+
+ALTER TABLE invoices
+ADD CONSTRAINT fk_i_students
+FOREIGN KEY (student_id)
+REFERENCES students (student_id);
+
+--Check CONSTRAINTS
+
+ALTER TABLE students 
+ADD CONSTRAINT ck_fname
+CHECK (st_fname=UPPER(st_fname));
+
+ALTER TABLE students 
+ADD CONSTRAINT ck_sname
+CHECK (st_sname=UPPER(st_sname));
+
+ALTER TABLE courses 
+ADD CONSTRAINT ck_duration
+CHECK (duration IN(3,5));
+
+--Adding Unique keys
+
+ALTER TABLE trainers 
+ADD CONSTRAINT u_car_reg
+UNIQUE (car_reg);
+

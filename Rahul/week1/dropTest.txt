@@ -1,0 +1,17 @@
+/* 
+module_name, your_name, date
+
+good practice is important.  
+Script filess should structured, tidy and professional to aim usability
+ 
+*/
+-- RunCommand EG @E:\Rahul\week1\dropTest.txt
+-- Note the order of the tables
+
+-- DROP COMMANDS
+
+DROP TABLE loans;
+DROP TABLE books;
+DROP TABLE students;
+DROP TABLE customers;
+--PURGE RECYCLEBIN;

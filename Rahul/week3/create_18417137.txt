@@ -1,0 +1,34 @@
+--	Rahul@student/RAHUL
+-- @E:\Rahul\week2\create_18417137.txt
+/* 
+Rahul, 18417137, DATABASE 1, 
+*/
+
+
+CREATE TABLE sites (
+site_id NUMBER(5),
+site_name VARCHAR(20) );
+
+ALTER TABLE sites
+ADD location VARCHAR2(30);
+
+CREATE TABLE subject_areas (
+subject_id NUMBER(5),
+subject_name VARCHAR2(15),
+description VARCHAR2(50));
+
+CREATE TABLE trainers(
+trainer_id NUMBER(5),
+t_firstname VARCHAR2(15),
+t_surname VARCHAR2(15),
+mentor_id NUMBER(3),
+contact_no VARCHAR2(15),
+rate NUMBER(3));
+
+
+CREATE TABLE students(
+student_id NUMBER(4),
+st_fname VARCHAR2(15),
+st_sname VARCHAR2(15),
+date_of_birth DATE,
+address VARCHAR2(15));

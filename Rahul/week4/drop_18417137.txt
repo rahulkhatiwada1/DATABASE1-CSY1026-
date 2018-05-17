@@ -1,0 +1,72 @@
+--@E:\Rahul\week4\drop_18417137.txt
+
+/* 
+Rahul, 18417137, DATABASE 1, 
+*/
+
+--FOREIGN KEY DROP
+ALTER TABLE courses
+DROP CONSTRAINT fk_c_subject_areas;
+
+ALTER TABLE attendances
+DROP CONSTRAINT fk_a_course_runs;
+
+ALTER TABLE attendances
+DROP CONSTRAINT fk_a_students;
+
+ALTER TABLE course_runs
+DROP CONSTRAINT fk_c_sites;
+
+ALTER TABLE course_runs
+DROP CONSTRAINT fk_c_courses;
+
+ALTER TABLE course_runs
+DROP CONSTRAINT fk_c_trainers;
+
+ALTER TABLE invoices
+DROP CONSTRAINT fk_i_students;
+
+--PRIMARY KEY DROP
+ALTER TABLE trainers
+DROP CONSTRAINT pk_trainers;
+
+ALTER TABLE sites
+DROP CONSTRAINT pk_sites;
+
+ALTER TABLE courses
+DROP CONSTRAINT pk_courses;
+
+ALTER TABLE students
+DROP CONSTRAINT pk_students;
+
+ALTER TABLE attendances
+DROP CONSTRAINT pk_attendances;
+
+ALTER TABLE course_runs
+DROP CONSTRAINT pk_course_runs;
+
+ ALTER TABLE subject_areas
+DROP CONSTRAINT pk_subject_areas;
+
+ALTER TABLE invoices
+DROP CONSTRAINT pk_invoices;
+
+
+ 
+--UNIQUE KEY DROP
+ALTER TABLE trainers
+DROP CONSTRAINT u_car_reg;
+
+
+--TABLE DROP
+
+DROP TABLE sites;
+DROP TABLE subject_areas;
+DROP TABLE trainers;
+DROP TABLE students;
+DROP TABLE courses;
+DROP TABLE course_runs;
+DROP TABLE attendances;
+DROP TABLE invoices;
+
+PURGE RECYCLEBIN;
